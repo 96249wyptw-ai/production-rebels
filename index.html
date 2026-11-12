@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="assets/favicon.png" type="image/png" />
+<title>Production Rebels – Vom Prototyp zur Serie</title>
+<meta name="description" content="Production Rebels: Netzwerk für Hardware-Startups – von der Idee über Prototyp und Vorserie zur Serie. Know-how, Netzwerk und Förder-Check (Zuschuss bis zu 15.000 € möglich) für deine erste Serienproduktion." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Production Rebels – Vom Prototyp zur Serie" />
+<meta property="og:description" content="Von der Idee zur Produktionsreife: Planen, Testen, Produzieren, Launchen, Vermarkten." />
+<meta property="og:url" content="https://production-rebels.com/" />
+<meta name="robots" content="max-image-preview:large" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://production-rebels.com/#website",
+      "url": "https://production-rebels.com/",
+      "name": "Production Rebels – Vom Prototyp zur Serie",
+      "inLanguage": "de",
+      "publisher": { "@id": "https://production-rebels.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://production-rebels.com/#org",
+      "name": "Production Rebels",
+      "url": "https://production-rebels.com/",
+      "email": "productionrebels@wojcon.de",
+      "telephone": "+49-228-92669692",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wolbersacker 10",
+        "postalCode": "53359",
+        "addressLocality": "Rheinbach",
+        "addressCountry": "DE"
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0b0b0e;
+  --bg2:#121218;
+  --panel:#16161d;
+  --ink:#f5f4f0;
+  --muted:#a09daa;
+  --violet:#6F45FF;
+  --blue:#263EFF;
+  --red:#FF0D16;
+  --gold:#EABC35;
+  --line:#26262f;
+  --wrap:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:inherit}
+img,svg{display:block}
+section{padding:96px 0;scroll-margin-top:90px}
+.kicker{
+  display:inline-block;
+  font-size:12px;font-weight:bold;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid rgba(234,188,53,.45);
+  padding:6px 14px;border-radius:999px;
+  margin-bottom:18px;
+}
+h1{font-size:clamp(34px,5.4vw,64px);line-height:1.08;font-weight:bold;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3.4vw,40px);line-height:1.15;font-weight:bold}
+h3{font-size:19px;font-weight:bold}
+.lead{color:var(--muted);font-size:18px;max-width:760px;margin-top:18px}
+.muted{color:var(--muted)}
+.hand{font-family:"Segoe Script","Comic Sans MS",cursive;font-size:15px;color:var(--gold);transform:rotate(-2deg);display:inline-block}
+
+.top-strip{
+  background:var(--bg2);
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+.top-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:8px;padding-bottom:8px}
+.brand-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand-bar__label{color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.brand-bar a{text-decoration:none;color:var(--muted)}
+.brand-bar a:hover{color:var(--ink)}
+.brand-bar a[aria-current="page"]{color:var(--gold);font-weight:bold}
+.top-mail a{color:var(--ink);text-decoration:none;font-weight:bold}
+.top-mail a:hover{color:var(--gold)}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,11,14,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .bar{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.wordmark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:bold;letter-spacing:.12em;font-size:17px}
+.wordmark em{font-style:normal;color:var(--gold)}
+.wordmark svg{width:30px;height:30px}
+.logo-chip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:5px 12px}
+.logo-chip img{height:24px;width:auto}
+.news-card .thumb{flex-direction:column;gap:10px}
+.news-card .thumb img{width:56px;height:56px}
+.nav{display:flex;gap:22px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:bold;letter-spacing:.04em}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a.cta{color:#0b0b0e;background:var(--gold);padding:8px 16px;border-radius:6px}
+.nav a.cta:hover{background:#f5cd55;color:#0b0b0e}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0}
+
+.hero{padding:110px 0 90px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(600px 320px at 85% 20%,rgba(111,69,255,.22),transparent 60%),
+    radial-gradient(520px 300px at 12% 80%,rgba(38,62,255,.18),transparent 60%),
+    radial-gradient(420px 260px at 60% 90%,rgba(255,13,22,.12),transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;position:relative}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;text-decoration:none;font-weight:bold;font-size:15px;padding:13px 24px;border-radius:8px;border:1px solid transparent}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:#ff2b32}
+.btn.ghost{border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+.keywords{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.keywords span{
+  font-size:13px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--muted);
+}
+.keywords span:nth-child(4n+1){color:var(--violet);border-color:rgba(111,69,255,.5)}
+.keywords span:nth-child(4n+2){color:var(--blue);border-color:rgba(38,62,255,.55)}
+.keywords span:nth-child(4n+3){color:var(--gold);border-color:rgba(234,188,53,.5)}
+.keywords span:nth-child(4n+4){color:var(--red);border-color:rgba(255,13,22,.5)}
+
+.star-stage{position:relative;display:flex;justify-content:center}
+.star-stage svg{width:min(340px,80vw);height:auto;overflow:visible}
+.star-arm{opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:armIn .55s cubic-bezier(.2,.7,.3,1.2) forwards;animation-delay:calc(var(--i)*.22s + .35s)}
+@keyframes armIn{from{opacity:0;transform:scaleY(.15)}to{opacity:1;transform:scaleY(1)}}
+.star-core{opacity:0;animation:coreIn .6s ease forwards;animation-delay:calc(var(--arms,8)*.22s + .5s)}
+@keyframes coreIn{to{opacity:1}}
+.star-label{
+  position:absolute;font-size:12px;font-weight:bold;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  opacity:0;animation:coreIn .5s ease forwards;
+}
+.star-label.l1{top:2%;left:8%;animation-delay:.5s;color:var(--violet)}
+.star-label.l2{top:16%;right:0;animation-delay:1.2s;color:var(--blue)}
+.star-label.l3{bottom:16%;right:2%;animation-delay:1.9s;color:var(--gold)}
+.star-label.l4{bottom:2%;left:10%;animation-delay:2.6s;color:var(--red)}
+
+.grid{display:grid;gap:18px}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.grid.c2{grid-template-columns:repeat(2,1fr)}
+.grid.c4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:26px;
+  transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card .num{font-size:11px;font-weight:bold;letter-spacing:.2em;color:var(--gold);margin-bottom:12px}
+.card p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.card p a{color:var(--ink)}
+.section--alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.tl{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:36px}
+.tl .item{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 16px;
+  border-top:3px solid var(--gold);
+}
+.tl .item:nth-child(2){border-top-color:var(--violet)}
+.tl .item:nth-child(3){border-top-color:var(--blue)}
+.tl .item:nth-child(4){border-top-color:var(--red)}
+.tl .item:nth-child(5){border-top-color:var(--gold)}
+.tl .item:nth-child(6){border-top-color:var(--violet)}
+.tl .year{font-size:11px;font-weight:bold;letter-spacing:.18em;color:var(--muted)}
+.tl .item p{font-size:13.5px;color:var(--muted);margin-top:10px}
+.tl .item strong{color:var(--ink);display:block;margin-bottom:4px;font-size:14.5px}
+.tl .item .sub{display:inline-block;margin-top:8px;font-size:11px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(234,188,53,.4);border-radius:999px;padding:3px 10px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips span{border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13.5px;font-weight:bold;color:var(--muted)}
+.chips span.hot{color:var(--gold);border-color:rgba(234,188,53,.5)}
+
+.partner-logos{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.partner-logos span{
+  border:1px dashed var(--line);border-radius:10px;padding:14px 22px;
+  font-weight:bold;letter-spacing:.12em;font-size:14px;color:var(--muted);
+}
+.partner-logos span b{color:var(--ink)}
+
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.news-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.news-card .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-weight:bold;letter-spacing:.1em;font-size:13px;color:#0b0b0e}
+.news-card .thumb.t1{background:linear-gradient(135deg,var(--violet),var(--blue));color:#fff}
+.news-card .thumb.t2{background:linear-gradient(135deg,var(--gold),var(--red));color:#0b0b0e}
+.news-card .thumb.t3{background:linear-gradient(135deg,var(--blue),#0b0b0e);color:#fff}
+.news-card .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news-card .body p{color:var(--muted);font-size:14px;flex:1}
+.news-card .body a{color:var(--gold);font-weight:bold;text-decoration:none;font-size:14px}
+.news-card .body a:hover{text-decoration:underline}
+.news-card .date{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.fuckups{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.fuckups h2{font-size:clamp(30px,4vw,52px);text-transform:uppercase;line-height:1.05}
+.fuckups h2 .r{color:var(--red)}
+.ele-svg{width:100%;max-width:420px;height:auto}
+.fuck-list{list-style:none;margin-top:22px}
+.fuck-list li{border-bottom:1px solid var(--line)}
+.fuck-list a{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:14px 4px;text-decoration:none;font-weight:bold;font-size:15px;color:var(--ink);
+}
+.fuck-list a:hover{color:var(--red)}
+.fuck-list a .arrow{color:var(--red)}
+
+.contact-band{background:linear-gradient(120deg,rgba(111,69,255,.25),rgba(38,62,255,.18) 55%,rgba(234,188,53,.14));border:1px solid var(--line);border-radius:16px;padding:56px 40px}
+.contact-band h2{margin-bottom:10px}
+.contact-band p{color:var(--muted);max-width:640px}
+.contact-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px;align-items:center}
+.big{
+  display:inline-block;text-decoration:none;font-weight:bold;font-size:clamp(17px,2.4vw,24px);
+  color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:14px 22px;background:rgba(11,11,14,.5);
+}
+.big:hover{border-color:var(--gold);color:var(--gold)}
+.addr{margin-top:18px;color:var(--muted);font-size:15px}
+
+.legal{border-top:1px solid var(--line);padding:56px 0}
+.legal h1{font-size:30px;margin:10px 0 18px}
+.legal h2{font-size:18px;margin:22px 0 6px}
+.legal p{color:var(--muted);font-size:14.5px;margin:6px 0;max-width:820px}
+.legal p a{color:var(--ink)}
+.note{
+  font-size:13.5px;color:var(--gold);
+  border:1px solid rgba(234,188,53,.5);background:rgba(234,188,53,.08);
+  padding:10px 14px;border-radius:8px;max-width:820px;margin-bottom:16px;
+}
+
+.site-footer{border-top:1px solid var(--line);background:var(--bg2);padding:56px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:32px}
+.widget-title{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.widget-list{list-style:none}
+.widget-list li{margin:8px 0}
+.widget-list a{text-decoration:none;color:var(--muted);font-size:14.5px}
+.widget-list a:hover{color:var(--gold)}
+.footer-grid address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.8}
+.footer-grid address a{color:var(--ink);text-decoration:none}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:40px;padding-top:22px;font-size:13.5px;color:var(--muted);
+}
+.footer-bottom nav{display:flex;gap:18px}
+.footer-bottom a{text-decoration:none;color:var(--muted)}
+.footer-bottom a:hover{color:var(--gold)}
+
+.to-top{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);font-size:18px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{border-color:var(--gold);color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .star-stage{order:-1}
+  .grid.c3,.grid.c4,.news-grid{grid-template-columns:repeat(2,1fr)}
+  .tl{grid-template-columns:repeat(2,1fr)}
+  .fuckups{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .burger{display:block}
+  .nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--bg2);border-bottom:1px solid var(--line);
+    flex-direction:column;padding:18px 24px;gap:14px;
+  }
+  .site-header.menu-open .nav{display:flex}
+}
+@media (max-width:600px){
+  .grid.c2,.grid.c3,.grid.c4,.news-grid,.tl{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="top-strip">
+  <div class="wrap">
+    <nav class="brand-bar" aria-label="WOJcon Netzwerk">
+      <span class="brand-bar__label">Netzwerk:</span>
+      <a href="https://www.wojcon.de/">WOJcon Consulting</a>
+      <a href="https://production-rebels.com/" aria-current="page">Production Rebels</a>
+      <a href="https://timwood.de/">TIMWOOD</a>
+    </nav>
+    <span class="top-mail"><a href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a></span>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="bar">
+    <a class="wordmark" href="#start" aria-label="Production Rebels – Start">
+      <span class="logo-chip"><img src="assets/logo.png" alt="Production Rebels" /></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Hauptnavigation">
+      <a href="#fuckups">FuckUps</a>
+      <a href="#prozess">Prozess</a>
+      <a href="#netzwerk">Netzwerk</a>
+      <a href="#vision">Vision</a>
+      <a href="#news">News</a>
+      <a href="#rebells">Beispiele</a>
+      <a href="#partner">Partner</a>
+      <a class="cta" href="#kontakt">Kontakt</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="start">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">Hardware-Startups · Vom Konzept zur Kommerzialisierung</p>
+        <h1>Von eurem Prototyp zur <span style="color:var(--gold)">Produktionsreife</span>.</h1>
+        <p class="lead">Entdecke die Power der Serienproduktion und bring deine Innovationen auf den Markt. Gemeinsam sind wir ein starkes Netzwerk von Unternehmen, das sich auf die Förderung von Hardware-Startups spezialisiert hat.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="#kontakt">Erstgespräch vereinbaren</a>
+          <a class="btn ghost" href="#prozess">So funktioniert's</a>
+        </div>
+        <div class="keywords" aria-label="Leistungen">
+          <span>Produktionkonzepte</span>
+          <span>Fehleranalyse</span>
+          <span>Troubleshooting</span>
+          <span>Support</span>
+          <span>Controlling</span>
+          <span>Materialwirtschaft</span>
+          <span>Marketing</span>
+        </div>
+      </div>
+      <div class="star-stage" aria-label="Stern baut sich auf: Idee, Prototyp, Vorserie, Serie">
+        <svg viewBox="-210 -210 420 420" role="img" aria-label="Stern, der sich Schritt für Schritt aufbaut">
+          <g>
+            <rect class="star-arm" style="--i:0" x="-17" y="-196" width="34" height="128" rx="17" fill="#6F45FF"/>
+            <rect class="star-arm" style="--i:1" x="-17" y="-196" width="34" height="128" rx="17" fill="#263EFF" transform="rotate(45)"/>
+            <rect class="star-arm" style="--i:2" x="-17" y="-196" width="34" height="128" rx="17" fill="#EABC35" transform="rotate(90)"/>
+            <rect class="star-arm" style="--i:3" x="-17" y="-196" width="34" height="128" rx="17" fill="#FF0D16" transform="rotate(135)"/>
+            <rect class="star-arm" style="--i:4" x="-17" y="-196" width="34" height="128" rx="17" fill="#6F45FF" transform="rotate(180)"/>
+            <rect class="star-arm" style="--i:5" x="-17" y="-196" width="34" height="128" rx="17" fill="#263EFF" transform="rotate(225)"/>
+            <rect class="star-arm" style="--i:6" x="-17" y="-196" width="34" height="128" rx="17" fill="#EABC35" transform="rotate(270)"/>
+            <rect class="star-arm" style="--i:7" x="-17" y="-196" width="34" height="128" rx="17" fill="#FF0D16" transform="rotate(315)"/>
+          </g>
+          <g class="star-core">
+            <polygon points="46,0 32.5,32.5 0,46 -32.5,32.5 -46,0 -32.5,-32.5 0,-46 32.5,-32.5" fill="#0b0b0e" stroke="#f5f4f0" stroke-width="5"/>
+            <text y="6" text-anchor="middle" font-size="17" font-weight="bold" fill="#EABC35" font-family="Arial,Helvetica,sans-serif">8×</text>
+          </g>
+        </svg>
+        <span class="star-label l1">Idee</span>
+        <span class="star-label l2">Prototyp</span>
+        <span class="star-label l3">Vorserie</span>
+        <span class="star-label l4">Serie</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prozess" class="section--alt">
+  <div class="wrap reveal">
+    <p class="kicker">Ablauf</p>
+    <h2>Von der Idee zur Produktion / Marktreife.</h2>
+    <p class="lead">Sechs Schritte – vom ersten Gedanken bis zur laufenden Serie. Dazwischen: Fehleranalyse, Troubleshooting, Support und Controlling.</p>
+    <div class="tl">
+      <div class="item"><span class="year">Schritt 1</span><p><strong>Ideen</strong>Du hast ein neues Produkt entwickelt? Wir hören zu.</p></div>
+      <div class="item"><span class="year">Schritt 2</span><p><strong>Planen</strong>Kostenfreie Planung der ersten Produktion.</p><span class="sub">Einkauf</span></div>
+      <div class="item"><span class="year">Schritt 3</span><p><strong>Testen</strong>Prototyp auf Herz und Nieren prüfen.</p><span class="sub">Fehleranalyse</span><span class="sub">Troubleshooting</span></div>
+      <div class="item"><span class="year">Schritt 4</span><p><strong>Produzieren</strong>Aufbau der ersten Serienproduktion – gefördert.</p></div>
+      <div class="item"><span class="year">Schritt 5</span><p><strong>Launchen</strong>Go-to-Market mit dem Netzwerk.</p><span class="sub">Support / Controlling</span></div>
+      <div class="item"><span class="year">Schritt 6</span><p><strong>Vermarkten</strong>Sichtbar werden – mit Marketing aus dem Netzwerk.</p><span class="sub">Finanz- / Personalwirtschaft</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="netzwerk">
+  <div class="wrap reveal">
+    <p class="kicker">Netzwerk</p>
+    <h2>Production Rebels: wir sind ein Zusammenschluss von Unternehmen.</h2>
+    <p class="lead">Unser Ziel: Gründerinnen und Gründern dabei helfen, ihre Hardware-Innovationen erfolgreich in den Markt zu bringen.</p>
+    <div class="grid c3" style="margin-top:34px">
+      <div class="card"><p class="num">Know-how</p><h3>Branchenweites Netzwerk</h3><p>Profitiere von unserem branchenweiten Netzwerk und unserer Expertise in Entwicklung und Produktion von Hardware.</p></div>
+      <div class="card"><p class="num">Unkompliziert</p><h3>Direkter Austausch</h3><p>Keine Aktenberge: direkter Austausch und kurze Entscheidungswege. Keine Bindung an uns – den Umfang bestimmst du.</p></div>
+      <div class="card"><p class="num">Prozess-Know-how</p><h3>Von der Beratung</h3><p>Prozess- und Produktionserfahrung von <a href="https://www.wojcon.de/" target="_blank" rel="noopener">WOJcon Consulting</a>: Wertstrom, 5S, Fertigungslayout, Qualitätsprozesse. Lean-Wissen dazu auf <a href="https://timwood.de/" target="_blank" rel="noopener">timwood.de</a>.</p></div>
+    </div>
+    <div class="grid c3" style="margin-top:18px">
+      <div class="card"><p>„Bei Production Rebels gestalten wir nicht nur Produkte, sondern auch die Zukunft unserer Startups – jeder Tag ist eine Chance, die Welt zu verändern.“</p><p class="muted" style="margin-top:12px;font-weight:bold;color:var(--ink)">Tim M.</p></div>
+      <div class="card"><p>„Bei Production Rebels habe ich nicht nur meine Produktidee eingebracht, sondern auch meinen Traum. Hier entsteht nicht nur Innovation, sondern auch eine neue Welt voller Möglichkeiten.“</p><p class="muted" style="margin-top:12px;font-weight:bold;color:var(--ink)">Rolf J.</p></div>
+      <div class="card"><p>„Als Partner von Production Rebels erlebe ich eine inspirierende Reise, in der wir gemeinsam die Grenzen des Möglichen überschreiten und die Zukunft des Unternehmertums gestalten.“</p><p class="muted" style="margin-top:12px;font-weight:bold;color:var(--ink)">Melanie S.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="vision" class="section--alt">
+  <div class="wrap reveal">
+    <p class="kicker">Vision + was wir können</p>
+    <h2>Kostenfrei planen, gefördert aufbauen.</h2>
+    <div class="grid c4" style="margin-top:34px">
+      <div class="card"><p class="num">Kostenfrei</p><h3>Planung der ersten Produktion</h3><p>Fertigungslayout, Logistik, Lieferanten, Teambildung – direkt umsetzbar.</p></div>
+      <div class="card"><p class="num">Finanziell</p><h3>Förder-Check</h3><p>Wir evaluieren passende Fördermöglichkeiten (Zuschuss bis zu 15.000&nbsp;€ möglich) und helfen zusätzlich bei Vorfinanzierungen.</p></div>
+      <div class="card"><p class="num">Erstgespräch</p><h3>Idee vorstellen</h3><p>Telefonisch, per Video-Call oder persönlich – gerne 20 Minuten an einem Mittwoch zwischen 10 und 12 Uhr.</p></div>
+      <div class="card"><p class="num">Flexibel</p><h3>Ohne Bindung</h3><p>Keine Abgabe von Unternehmensanteilen, keine langfristige Bindung. Du bestimmst den Umfang.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="partner">
+  <div class="wrap reveal">
+    <p class="kicker">Partner &amp; Förderungen</p>
+    <h2>Ein Netzwerk, das fördert.</h2>
+    <p class="lead">Wir sind ein neu gegründetes Netzwerk aus Unternehmen der Hardwareentwicklung und -produktion – mit starken Partnern und Förderzugängen (z.&nbsp;B. IHK, Fraunhofer-Netzwerk). Die Förderung mehrerer Startups ist möglich.</p>
+    <div class="partner-logos" aria-label="Partner-Logos">
+      <span><b>IHK</b></span>
+      <span><b>Fraunhofer</b></span>
+      <span><b>Fuchs</b> 2023</span>
+      <span><b>BERNBAU</b></span>
+      <span><b>WOJcon</b> Consulting</span>
+      <span><b>TIMWOOD</b></span>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="section--alt">
+  <div class="wrap reveal">
+    <p class="kicker">News · Schlagwörter</p>
+    <h2>Frisch aus der Schmiede.</h2>
+    <div class="chips" aria-label="Schlagwörter">
+      <span class="hot">Produktion</span><span class="hot">Serie</span><span class="hot">Förderung</span><span class="hot">Netzwerk</span><span>Fuckups</span><span>Prototyp</span><span>Hardware</span><span>Startups</span>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="thumb t1"><img src="assets/icons/icon-01.png" alt="" />PDF</div>
+        <div class="body">
+          <span class="date">News</span>
+          <h3>Produktschmiede: unser PDF</h3>
+          <p>Vom Konzept zur Kommerzialisierung – unser Ansatz als PDF zum Download.</p>
+          <a href="#news">mehr lesen →</a>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="thumb t2"><img src="assets/icons/icon-02.png" alt="" />NETZWERK</div>
+        <div class="body">
+          <span class="date">News</span>
+          <h3>Neues aus dem Netzwerk</h3>
+          <p>Platzhalter – hier landen künftig Meldungen aus dem Rebels-Netzwerk.</p>
+          <a href="#news">mehr lesen →</a>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="thumb t3"><img src="assets/icons/icon-03.png" alt="" />FUCKUP</div>
+        <div class="body">
+          <span class="date">News</span>
+          <h3>Fuckup des Monats</h3>
+          <p>Platzhalter – lerne aus den Fehlern anderer, bevor du sie selbst machst.</p>
+          <a href="#fuckups">mehr lesen →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="fuckups">
+  <div class="wrap reveal">
+    <div class="fuckups">
+      <div>
+        <svg class="ele-svg" viewBox="0 0 420 300" role="img" aria-label="Elefant im Raum: Rüssel zeigt auf bunte Ideen-Formen">
+          <g fill="none" stroke="#f5f4f0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 210 q-18 -60 30 -92 q40 -26 92 -18 q58 9 78 52 q16 36 2 78"/>
+            <path d="M272 132 q34 -6 40 24 q5 26 -14 40 q-12 9 -26 6"/>
+            <path d="M262 150 q26 10 30 34"/>
+            <circle cx="120" cy="128" r="26"/>
+            <path d="M96 118 q-16 -18 -4 -34 q18 6 20 26"/>
+            <path d="M92 210 l0 44 M150 216 l0 44 M230 214 l0 44 M282 206 l0 44"/>
+            <path d="M296 196 q22 8 26 30"/>
+          </g>
+          <g>
+            <circle cx="352" cy="60" r="13" fill="#EABC35"/>
+            <path d="M352 38 l4 8 9 1 -6 6 1 9 -8 -4 -8 4 1 -9 -6 -6 9 -1 z" fill="#6F45FF"/>
+            <circle cx="384" cy="96" r="11" fill="none" stroke="#263EFF" stroke-width="5"/>
+            <path d="M384 80 v-8 M384 120 v-8 M368 96 h-8 M408 96 h-8 M373 85 l-6 -6 M401 113 l-6 -6 M395 85 l6 -6 M367 113 l6 -6" stroke="#263EFF" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="344" cy="112" r="10" fill="#263EFF"/>
+            <circle cx="340" cy="108" r="3" fill="#f5f4f0"/><circle cx="349" cy="108" r="3" fill="#f5f4f0"/><circle cx="344" cy="117" r="3" fill="#f5f4f0"/>
+            <path d="M318 66 l16 -14 m0 0 l-10 1 m10 -1 l-2 10" stroke="#FF0D16" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <p class="kicker">Aufzählung FuckUps</p>
+        <h2>Founder Fuckups <span class="r">we are talking about</span></h2>
+        <p class="lead">Der Elefant im Raum: Fehler passieren – in der Idee, im Prototyp, in der Serie. Wir reden offen darüber.</p>
+        <ul class="fuck-list">
+          <li><a href="#fuckups">Fuckupnight – Vorträge &amp; Austausch <span class="arrow">→</span></a></li>
+          <li><a href="#fuckups">Aufzählung unserer Fuckups <span class="arrow">→</span></a></li>
+          <li><a href="#fuckups">Link: Lessons learned <span class="arrow">→</span></a></li>
+          <li><a href="#kontakt">Eigenen Fuckup melden <span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rebells" class="section--alt">
+  <div class="wrap reveal">
+    <p class="kicker">Beispiele</p>
+    <h2>Die Rebells – verschiedene Rebells.</h2>
+    <p class="lead">Aus unterschiedlichen Branchen und Gewerken: Design, Marketing, Produktion, Merchandise, Vorrichtungen, Zerspanung, 3D-Druck – und Retail, Food, Liquor.</p>
+    <div class="chips">
+      <span class="hot">Design</span><span class="hot">Marketing</span><span class="hot">Produktion</span><span>Merchandise</span><span>Vorrichtungen</span><span>Zerspanung</span><span>3D-Druck</span><span>Retail</span><span>Food</span><span>Liquor</span>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="padding-top:0">
+  <div class="wrap reveal">
+    <div class="contact-band">
+      <p class="kicker">Kontakt</p>
+      <h2>Kontaktieren Sie uns noch heute.</h2>
+      <p>Direkter Austausch, keine Aktenberge – schreiben Sie uns oder rufen Sie an. Gerne reservieren Sie 20 Minuten an einem Mittwoch zwischen 10 und 12 Uhr.</p>
+      <div class="contact-links">
+        <a class="big" href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a>
+        <a class="big" href="tel:+4922892669692">0228 – 92669692</a>
+        <span class="hand">Wir sehen uns am 5.!</span>
+      </div>
+      <p class="addr">Wolbersacker 10 · 53359 Rheinbach · Lokales Büro: Bonn</p>
+    </div>
+  </div>
+</section>
+
+<section id="impressum" class="legal">
+  <div class="wrap">
+    <p class="kicker">Rechtliches</p>
+    <h1>Impressum</h1>
+    <p><strong>WOJcon Consulting</strong><br />Wolbersacker 10<br />D-53359 Rheinbach<br />Lokales Büro: Bonn</p>
+    <p>Telefon: <a href="tel:+4922892669692">0228 – 92669692</a><br />E-Mail: <a href="mailto:kontakt@wojcon.de">kontakt@wojcon.de</a> (Rebels: <a href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a>)</p>
+    <p>Vertretungsberechtigt: Jörg Wojtun (Geschäftsführer)<br />Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: DE 206/5365/2215</p>
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>Jörg Wojtun, Anschrift wie oben.</p>
+    <p class="muted" style="margin-top:24px;font-size:13.5px">← <a href="#kontakt">Zurück zum Kontakt</a></p>
+  </div>
+</section>
+
+<section id="datenschutz" class="legal" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">Rechtliches</p>
+    <h1>Datenschutzerklärung</h1>
+    <p class="note">Hinweis: Struktur – der finale Text wird vor dem Livegang durch die rechtlich geprüfte Fassung ersetzt.</p>
+    <h2>1. Verantwortliche Stelle</h2>
+    <p>WOJcon Consulting, Wolbersacker 10, D-53359 Rheinbach, Telefon 0228 – 92669692, kontakt@wojcon.de.</p>
+    <h2>2. Server-Log-Dateien</h2>
+    <p>Beim Besuch dieser Website werden durch den Hosting-Anbieter automatisch Informationen in Server-Log-Dateien gespeichert (Browserart, Betriebssystem, Referrer-URL, Uhrzeit). Diese Daten sind nicht bestimmten Personen zuordenbar.</p>
+    <h2>3. Kontakt per E-Mail und Telefon</h2>
+    <p>Bei Kontaktaufnahme werden die angegebenen Daten ausschließlich zur Bearbeitung der Anfrage verarbeitet (Art. 6 Abs. 1 lit. b bzw. f DSGVO).</p>
+    <h2>4. Externe Inhalte &amp; Verlinkungen</h2>
+    <p>Diese Seite verlinkt auf wojcon.de und timwood.de; für deren Inhalte gelten die jeweiligen Datenschutzbestimmungen. Beim Anklicken gelten die Bestimmungen des Zielanbieters.</p>
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>
+    <p class="muted" style="margin-top:24px;font-size:13.5px">← <a href="#kontakt">Zurück zum Kontakt</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="#start" aria-label="Production Rebels">
+          <span class="logo-chip"><img src="assets/logo.png" alt="Production Rebels" /></span>
+        </a>
+        <p class="muted" style="font-size:14px;margin-top:14px">Vom Prototyp zur Serie – Serienproduktion für Hardware-Startups.<br /><a href="https://production-rebels.com/" style="color:var(--ink)">production-rebels.com</a></p>
+      </div>
+      <div>
+        <h4 class="widget-title">Production Rebels</h4>
+        <ul class="widget-list">
+          <li><a href="#prozess">Prozess</a></li>
+          <li><a href="#netzwerk">Netzwerk</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#fuckups">FuckUps</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="widget-title">WOJcon Netzwerk</h4>
+        <ul class="widget-list">
+          <li><a href="https://www.wojcon.de/" target="_blank" rel="noopener">WOJcon Consulting</a></li>
+          <li><a href="https://timwood.de/" target="_blank" rel="noopener">TIMWOOD</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="widget-title">Kontakt</h4>
+        <address>
+          Wolbersacker 10, 53359 Rheinbach<br />Lokales Büro: Bonn<br />
+          <a href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a><br />
+          <a href="tel:+4922892669692">0228 – 92669692</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <nav aria-label="Rechtliches">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+      </nav>
+      <p>© <span id="year">2026</span> Production Rebels · by WOJcon</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Nach oben scrollen">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+  var header=document.getElementById("siteHeader"), toTop=document.getElementById("toTop");
+  function onScroll(){
+    var s=window.scrollY||window.pageYOffset;
+    header.classList.toggle("scrolled", s>10);
+    toTop.classList.toggle("show", s>600);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+  toTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+  var burger=document.getElementById("burger");
+  burger.addEventListener("click", function(){
+    var open=header.classList.toggle("menu-open");
+    burger.setAttribute("aria-expanded", open?"true":"false");
+    burger.setAttribute("aria-label", open?"Menü schließen":"Menü öffnen");
+  });
+  document.querySelectorAll("#mainNav a").forEach(function(a){
+    a.addEventListener("click", function(){ header.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false"); });
+  });
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll("#mainNav a[href^='#']"));
+  var sections=navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  if("IntersectionObserver" in window && sections.length){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.toggle("active", a.getAttribute("href")==="#"+e.target.id); });
+        }
+      });
+    }, {rootMargin:"-35% 0px -55% 0px"});
+    sections.forEach(function(s){ io.observe(s); });
+  }
+  var rev=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && rev.length){
+    var ro=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); ro.unobserve(e.target); } });
+    }, {rootMargin:"0px 0px -8% 0px"});
+    rev.forEach(function(el){ ro.observe(el); });
+  } else {
+    rev.forEach(function(el){ el.classList.add("in"); });
+  }
+})();
+</script>
+</body>
+</html>
