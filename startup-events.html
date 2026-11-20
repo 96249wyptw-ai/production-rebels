@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="assets/favicon.png" type="image/png" />
+<title>Startup-Events rund um Bonn (75 km) – Production Rebels</title>
+<meta name="description" content="Aktuelle Startup-, Gründer- und Tech-Events im Umkreis von 75 km um Bonn (Bonn/Rhein-Sieg, Köln, Düsseldorf, Aachen, Dortmund) – aufgeteilt in Hardware/Deep-Tech und Software/Digital. Wird automatisch alle 14 Tage aktualisiert." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Startup-Events rund um Bonn (75 km) – Production Rebels" />
+<meta property="og:description" content="Event-Überblick für Hardware- und Software-Startups in der Region Bonn/Rheinland – automatisch alle 14 Tage aktualisiert." />
+<meta property="og:url" content="https://production-rebels.com/startup-events.html" />
+<meta name="robots" content="max-image-preview:large" />
+<style>
+:root{
+  --bg:#0b0b0e;
+  --bg2:#121218;
+  --panel:#16161d;
+  --ink:#f5f4f0;
+  --muted:#a09daa;
+  --violet:#6F45FF;
+  --blue:#263EFF;
+  --red:#FF0D16;
+  --gold:#EABC35;
+  --line:#26262f;
+  --wrap:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:inherit}
+img{display:block}
+section{padding:64px 0;scroll-margin-top:90px}
+.kicker{
+  display:inline-block;
+  font-size:12px;font-weight:bold;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid rgba(234,188,53,.45);
+  padding:6px 14px;border-radius:999px;
+  margin-bottom:18px;
+}
+h1{font-size:clamp(30px,4.6vw,52px);line-height:1.1;font-weight:bold;letter-spacing:-.01em}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.15;font-weight:bold;margin:48px 0 18px}
+h3{font-size:19px;font-weight:bold;margin:32px 0 12px}
+.lead{color:var(--muted);font-size:18px;max-width:820px;margin-top:18px}
+.muted{color:var(--muted)}
+
+.top-strip{background:var(--bg2);border-bottom:1px solid var(--line);font-size:13px}
+.top-strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:8px;padding-bottom:8px}
+.brand-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand-bar__label{color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.brand-bar a{text-decoration:none;color:var(--muted)}
+.brand-bar a:hover{color:var(--ink)}
+.brand-bar a[aria-current="page"]{color:var(--gold);font-weight:bold}
+.top-mail a{color:var(--ink);text-decoration:none;font-weight:bold}
+.top-mail a:hover{color:var(--gold)}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,11,14,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .bar{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.wordmark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:bold;letter-spacing:.12em;font-size:17px}
+.logo-chip{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:5px 12px}
+.logo-chip img{height:24px;width:auto}
+.nav{display:flex;gap:22px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:bold;letter-spacing:.04em}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a.cta{color:#0b0b0e;background:var(--gold);padding:8px 16px;border-radius:6px}
+.nav a.cta:hover{background:#f5cd55;color:#0b0b0e}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0}
+
+/* Events-Content */
+.events-body h1{margin-top:8px}
+.events-body table{
+  width:100%;border-collapse:collapse;margin:18px 0 8px;
+  font-size:14.5px;display:block;overflow-x:auto;
+}
+.events-body th,.events-body td{
+  border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;
+}
+.events-body thead th{background:var(--panel);color:var(--gold);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.events-body tbody tr:nth-child(even){background:var(--bg2)}
+.events-body td a{color:var(--ink);font-weight:bold}
+.events-body td a:hover{color:var(--gold)}
+.events-body ul{margin:12px 0 12px 22px}
+.events-body li{margin:6px 0}
+.events-body p{margin:12px 0}
+.events-body hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+.events-body code{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:13px}
+.events-status{
+  margin-top:14px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);color:var(--muted);font-size:14px;
+}
+.events-status strong{color:var(--ink)}
+.events-error{color:var(--red)}
+
+.site-footer{border-top:1px solid var(--line);background:var(--bg2);padding:56px 0 32px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:32px}
+.widget-title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.widget-list{list-style:none}
+.widget-list li{margin:8px 0}
+.widget-list a{text-decoration:none;color:var(--ink);font-size:14.5px}
+.widget-list a:hover{color:var(--gold)}
+address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.7}
+address a{color:var(--ink)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:40px;padding-top:20px;color:var(--muted);font-size:13.5px;
+}
+.footer-bottom nav{display:flex;gap:18px}
+.footer-bottom a{color:var(--muted);text-decoration:none}
+.footer-bottom a:hover{color:var(--ink)}
+
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .burger{display:block}
+  .nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    flex-direction:column;gap:0;padding:8px 24px 16px;
+  }
+  .site-header.menu-open .nav{display:flex}
+  .nav a{padding:10px 0;border-bottom:1px solid var(--line)}
+  section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="top-strip">
+  <div class="wrap">
+    <nav class="brand-bar" aria-label="WOJcon Netzwerk">
+      <span class="brand-bar__label">Netzwerk:</span>
+      <a href="https://www.wojcon.de/">WOJcon Consulting</a>
+      <a href="https://production-rebels.com/" aria-current="page">Production Rebels</a>
+      <a href="https://timwood.de/">TIMWOOD</a>
+    </nav>
+    <span class="top-mail"><a href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a></span>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="bar">
+    <a class="wordmark" href="index.html#start" aria-label="Production Rebels – Start">
+      <span class="logo-chip"><img src="assets/logo.png" alt="Production Rebels" /></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Hauptnavigation">
+      <a href="index.html#fuckups">FuckUps</a>
+      <a href="index.html#prozess">Prozess</a>
+      <a href="index.html#netzwerk">Netzwerk</a>
+      <a href="index.html#vision">Vision</a>
+      <a href="index.html#news">News</a>
+      <a href="index.html#rebells">Beispiele</a>
+      <a href="index.html#partner">Partner</a>
+      <a class="active" href="startup-events.html">Events</a>
+      <a class="cta" href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section id="events">
+  <div class="wrap">
+    <p class="kicker">Region Bonn/Rheinland · 75 km Umkreis</p>
+    <div class="events-body" id="eventsContent">
+      <p class="muted">Events werden geladen …</p>
+    </div>
+    <div class="events-status" id="eventsStatus">
+      <strong>Automatisch aktualisiert:</strong> Diese Seite wird alle 14 Tage per Workflow neu recherchiert
+      (Inhalt: <code>startup-events.md</code> in diesem Repository). Zuletzt aktualisiert siehe „Stand“ oben.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="index.html#start" aria-label="Production Rebels">
+          <span class="logo-chip"><img src="assets/logo.png" alt="Production Rebels" /></span>
+        </a>
+        <p class="muted" style="font-size:14px;margin-top:14px">Vom Prototyp zur Serie – Serienproduktion für Hardware-Startups.<br /><a href="https://production-rebels.com/" style="color:var(--ink)">production-rebels.com</a></p>
+      </div>
+      <div>
+        <h4 class="widget-title">Production Rebels</h4>
+        <ul class="widget-list">
+          <li><a href="index.html#prozess">Prozess</a></li>
+          <li><a href="index.html#netzwerk">Netzwerk</a></li>
+          <li><a href="index.html#vision">Vision</a></li>
+          <li><a href="index.html#news">News</a></li>
+          <li><a href="index.html#fuckups">FuckUps</a></li>
+          <li><a href="startup-events.html">Events</a></li>
+          <li><a href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="widget-title">WOJcon Netzwerk</h4>
+        <ul class="widget-list">
+          <li><a href="https://www.wojcon.de/" target="_blank" rel="noopener">WOJcon Consulting</a></li>
+          <li><a href="https://timwood.de/" target="_blank" rel="noopener">TIMWOOD</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="widget-title">Kontakt</h4>
+        <address>
+          Wolbersacker 10, 53359 Rheinbach<br />Lokales Büro: Bonn<br />
+          <a href="mailto:productionrebels@wojcon.de">productionrebels@wojcon.de</a><br />
+          <a href="tel:+4922892669692">0228 – 92669692</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <nav aria-label="Rechtliches">
+        <a href="index.html#impressum">Impressum</a>
+        <a href="index.html#datenschutz">Datenschutz</a>
+      </nav>
+      <p>© <span id="year">2026</span> Production Rebels · by WOJcon</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+  var header=document.getElementById("siteHeader"), burger=document.getElementById("burger");
+  burger.addEventListener("click", function(){
+    var open=header.classList.toggle("menu-open");
+    burger.setAttribute("aria-expanded", open?"true":"false");
+  });
+  document.querySelectorAll("#mainNav a").forEach(function(a){
+    a.addEventListener("click", function(){ header.classList.remove("menu-open"); burger.setAttribute("aria-expanded","false"); });
+  });
+
+  function esc(s){
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+  function inline(s){
+    return s
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+      .replace(/`([^`]+)`/g,'<code>$1</code>');
+  }
+  function renderMarkdown(md){
+    var lines=md.split(/\r?\n/), out=[], i=0, inList=false;
+    function closeList(){ if(inList){ out.push("</ul>"); inList=false; } }
+    function cells(row){ return row.trim().split("|").slice(1,-1).map(function(c){ return c.trim(); }); }
+    while(i<lines.length){
+      var line=lines[i];
+      if(/^\s*$/.test(line)){ closeList(); i++; continue; }
+      if(/^\s*\|/.test(line)){
+        closeList();
+        var rows=[];
+        while(i<lines.length && /^\s*\|/.test(lines[i])){ rows.push(lines[i]); i++; }
+        var body=rows.filter(function(r){ return !/^\|[\s\-:|]+\|?$/.test(r.trim()); });
+        if(body.length){
+          out.push("<table><thead><tr>"+cells(body[0]).map(function(c){ return "<th>"+inline(esc(c))+"</th>"; }).join("")+"</tr></thead><tbody>");
+          for(var r=1;r<body.length;r++){
+            out.push("<tr>"+cells(body[r]).map(function(c){ return "<td>"+inline(esc(c))+"</td>"; }).join("")+"</tr>");
+          }
+          out.push("</tbody></table>");
+        }
+        continue;
+      }
+      var h=line.match(/^(#{1,4})\s+(.*)$/);
+      if(h){ closeList(); var lvl=h[1].length; out.push("<h"+lvl+">"+inline(esc(h[2]))+"</h"+lvl+">"); i++; continue; }
+      if(/^\s*---+\s*$/.test(line)){ closeList(); out.push("<hr>"); i++; continue; }
+      if(/^\s*[-*]\s+/.test(line)){
+        if(!inList){ out.push("<ul>"); inList=true; }
+        out.push("<li>"+inline(esc(line.replace(/^\s*[-*]\s+/,"")))+"</li>"); i++; continue;
+      }
+      closeList();
+      out.push("<p>"+inline(esc(line))+"</p>");
+      i++;
+    }
+    closeList();
+    return out.join("\n");
+  }
+
+  var container=document.getElementById("eventsContent");
+  fetch("startup-events.md", {cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.text(); })
+    .then(function(md){ container.innerHTML=renderMarkdown(md); })
+    .catch(function(err){
+      container.innerHTML="<p class='events-error'>Events konnten nicht geladen werden ("+esc(String(err))+"). Rohdaten: <a href='startup-events.md'>startup-events.md</a></p>";
+    });
+})();
+</script>
+</body>
+</html>
