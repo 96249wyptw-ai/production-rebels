@@ -13,6 +13,12 @@ Statische Webseite für **Production Rebels** – Neuaufbau als reine HTML-Seite
 
 `index.html` im Browser öffnen, oder im Ordner: `python3 -m http.server` → http://localhost:8000
 
+## Startup-Events-Seite (`startup-events.html`)
+
+- `startup-events.html` rendert die Datei `startup-events.md` clientseitig (eingebetteter Mini-Markdown-Renderer, keine externen Abhängigkeiten).
+- `startup-events.md` wird automatisch **alle 14 Tage** aktualisiert durch den Mistral-Workflow `startup-events-bonn` (Code: `automation/`). Der Workflow recherchiert per WebSearch Events im Umkreis von 75 km um Bonn (Hardware/Deep-Tech vs. Software/Digital) und committed die Datei per GitHub-API (Token als Workspace-Secret `github_token` → Env `GITHUB_TOKEN`).
+- Zum Bearbeiten der Seite genügt es, `startup-events.md` anzufassen — kein HTML nötig.
+
 ## Design & Inhalt (Concept pr_2.pdf + Prot-Rebel 1/2)
 
 Dunkles Neon-Design (Violett/Blau/Gold/Rot auf Near-Black), Arial. Der 8-Arm-Stern im Hero baut sich animiert auf (Idee → Prototyp → Vorserie → Serie). Sektionen: Hero mit Leistungs-Keywords, 6-Schritte-Prozess (Idee → Planen → Testen → Produzieren → Launchen → Vermarkten), Netzwerk + Stimmen, Vision/Was wir können (Förder-Check bis 15.000 €), Partner/Förderungen, News mit Schlagwörtern, FuckUps, Die Rebells, Kontakt, Impressum/Datenschutz.
